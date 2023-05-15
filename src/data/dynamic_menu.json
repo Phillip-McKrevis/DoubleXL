@@ -1,0 +1,674 @@
+{
+  "99b297a0-f1e0-11ed-a61c-b538780b7862": {
+    "id": "99b297a0-f1e0-11ed-a61c-b538780b7862",
+    "menu": [
+      {
+        "id": "99b297a1-f1e0-11ed-a61c-b538780b7862",
+        "name": "Withdraw Funds",
+        "screen_id": "MENU_WITHDRAW_FUNDS",
+        "ussd_code": "*merchant*withdraw*V1#",
+        "children": [
+          {
+            "id": "99b297a2-f1e0-11ed-a61c-b538780b7862",
+            "name": "To Owner Mobile",
+            "screen_id": "MENU_WITHDRAW_OWNER",
+            "ussd_code": "*merchant*withdraw*owner*V1#"
+          },
+          {
+            "id": "99b297a3-f1e0-11ed-a61c-b538780b7862",
+            "name": "From M-PESA Agent",
+            "screen_id": "MENU_WITHDRAW_AGENT",
+            "ussd_code": "*merchant*withdraw*agent*V1#"
+          },
+          {
+            "id": "99b297a4-f1e0-11ed-a61c-b538780b7862",
+            "name": "To Bank",
+            "screen_id": "MENU_WITHDRAW_BANK",
+            "ussd_code": "*merchant*withdraw*bank*V1#"
+          },
+          {
+            "id": "99b297a5-f1e0-11ed-a61c-b538780b7862",
+            "name": "Funds Roll Up",
+            "screen_id": "MENU_WITHDRAW_ROLLUP",
+            "ussd_code": "*merchant*withdraw*rollup*V1#",
+            "children": [
+              {
+                "id": "99b297a6-f1e0-11ed-a61c-b538780b7862",
+                "name": "To Head Office",
+                "screen_id": "MENU_ROLLUP_HO",
+                "ussd_code": "*merchant*withdraw*rollup*head*V1#"
+              },
+              {
+                "id": "99b297a7-f1e0-11ed-a61c-b538780b7862",
+                "name": "From One Store",
+                "screen_id": "MENU_ROLLUP_STORE",
+                "ussd_code": "*merchant*withdraw*rollup*store*V1#"
+              },
+              {
+                "id": "99b297a8-f1e0-11ed-a61c-b538780b7862",
+                "name": "From All Stores",
+                "screen_id": "MENU_ROLLUP_ALL",
+                "ussd_code": "*merchant*withdraw*rollup*all*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b297a9-f1e0-11ed-a61c-b538780b7862",
+            "name": "Automatic Withdrawal",
+            "screen_id": "MENU_WITHDRAW_AUTO",
+            "ussd_code": "*merchant*withdraw*auto*V1#"
+          }
+        ]
+      },
+      {
+        "id": "99b297aa-f1e0-11ed-a61c-b538780b7862",
+        "name": "Make Payments",
+        "screen_id": "MENU_MAKE_PAYMENTS",
+        "ussd_code": "*merchant*payments*V1#",
+        "children": [
+          {
+            "id": "99b297ab-f1e0-11ed-a61c-b538780b7862",
+            "name": "Pay Mobile Number",
+            "screen_id": "MENU_PAYMENTS_MOBILE",
+            "ussd_code": "*merchant*payments*mobile*V1#"
+          },
+          {
+            "id": "99b297ac-f1e0-11ed-a61c-b538780b7862",
+            "name": "Pay Business",
+            "screen_id": "MENU_PAYMENTS_BUSINESS",
+            "ussd_code": "*merchant*payments*business*V1#"
+          },
+          {
+            "id": "99b297ad-f1e0-11ed-a61c-b538780b7862",
+            "name": "Safaricom",
+            "screen_id": "MENU_PAYMENTS_SAFARICOM",
+            "ussd_code": "*merchant*payments*safaricom*V1#"
+          },
+          {
+            "id": "99b297ae-f1e0-11ed-a61c-b538780b7862",
+            "name": "Utilities",
+            "screen_id": "MENU_PAYMENTS_UTILITIES",
+            "ussd_code": "*merchant*payments*utilities*V1#",
+            "children": [
+              {
+                "id": "99b297af-f1e0-11ed-a61c-b538780b7862",
+                "name": "EEU",
+                "screen_id": "MENU_UTILITIES_EEU",
+                "ussd_code": "*merchant*payments*utilities*pay*V1#"
+              },
+              {
+                "id": "99b297b0-f1e0-11ed-a61c-b538780b7862",
+                "name": "DSTV",
+                "screen_id": "MENU_UTILITIES_DSTV",
+                "ussd_code": "*merchant*payments*utilities*pay*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b297b1-f1e0-11ed-a61c-b538780b7862",
+            "name": "Contributions",
+            "screen_id": "MENU_PAYMENTS_CONTRIBUTIONS",
+            "ussd_code": "*merchant*payments*contrib*V1#",
+            "children": [
+              {
+                "id": "99b297b2-f1e0-11ed-a61c-b538780b7862",
+                "name": "GERD",
+                "screen_id": "MENU_CONTRIBUTION_GERD",
+                "ussd_code": "*merchant*payments*contrib*pay*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b297b3-f1e0-11ed-a61c-b538780b7862",
+            "name": "To Bank",
+            "screen_id": "MENU_PAYMENTS_BANK",
+            "ussd_code": "*merchant*payments*bank*V1#"
+          },
+          {
+            "id": "99b297b4-f1e0-11ed-a61c-b538780b7862",
+            "name": "From Saved Suppliers",
+            "screen_id": "MENU_PAYMENTS_SUPPLIERS",
+            "ussd_code": "*merchant*payments*suppliers*V1#"
+          }
+        ]
+      },
+      {
+        "id": "99b297b5-f1e0-11ed-a61c-b538780b7862",
+        "name": "Sell Airtime",
+        "screen_id": "MENU_SELL_AIRTIME",
+        "ussd_code": "*merchant*airtime*V1#"
+      },
+      {
+        "id": "99b297b6-f1e0-11ed-a61c-b538780b7862",
+        "name": "Check Balance",
+        "screen_id": "MENU_CHECK_BALANCE",
+        "ussd_code": "*merchant*balance*V1#",
+        "children": [
+          {
+            "id": "99b297b7-f1e0-11ed-a61c-b538780b7862",
+            "name": "This Store",
+            "screen_id": "MENU_BALANCE_THIS",
+            "ussd_code": "*merchant*balance*this*V1#"
+          },
+          {
+            "id": "99b297b8-f1e0-11ed-a61c-b538780b7862",
+            "name": "Enter Store Number",
+            "screen_id": "MENU_BALANCE_NUMBER",
+            "ussd_code": "*merchant*balance*number*V1#"
+          },
+          {
+            "id": "99b297b9-f1e0-11ed-a61c-b538780b7862",
+            "name": "All Stores",
+            "screen_id": "MENU_BALANCE_ALL",
+            "ussd_code": "*merchant*balance*all*V1#"
+          }
+        ]
+      },
+      {
+        "id": "99b297ba-f1e0-11ed-a61c-b538780b7862",
+        "name": "Merchant Account",
+        "screen_id": "MENU_MERCH_ACCOUNT",
+        "ussd_code": "*merchant*account*V1#",
+        "children": [
+          {
+            "id": "99b297bb-f1e0-11ed-a61c-b538780b7862",
+            "name": "Manage My PIN",
+            "screen_id": "MENU_ACCOUNT_PIN",
+            "ussd_code": "*merchant*account*pin*V1#",
+            "children": [
+              {
+                "id": "99b297bc-f1e0-11ed-a61c-b538780b7862",
+                "name": "Change my PIN",
+                "screen_id": "MENU_PIN_CHANGE",
+                "ussd_code": "*merchant*account*pin*change*V1#"
+              },
+              {
+                "id": "99b297bd-f1e0-11ed-a61c-b538780b7862",
+                "name": "Set my PIN",
+                "screen_id": "MENU_PIN_SET",
+                "ussd_code": "*merchant*account*pin*set*V1#"
+              },
+              {
+                "id": "99b297be-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unlock my PIN",
+                "screen_id": "MENU_PIN_UNLOCK",
+                "ussd_code": "*merchant*account*pin*unlock*V1#"
+              },
+              {
+                "id": "99b297bf-f1e0-11ed-a61c-b538780b7862",
+                "name": "Forgot my PIN",
+                "screen_id": "MENU_PIN_FORGOT",
+                "ussd_code": "*merchant*account*pin*forgot*V1#"
+              },
+              {
+                "id": "99b297c0-f1e0-11ed-a61c-b538780b7862",
+                "name": "Set M-PESA Security Question",
+                "screen_id": "MENU_PIN_QUESTIONS",
+                "ussd_code": "*merchant*account*pin*questions*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b297c1-f1e0-11ed-a61c-b538780b7862",
+            "name": "Manage Operators",
+            "screen_id": "MENU_ACCOUNT_OPERATORS",
+            "ussd_code": "*merchant*account*operator*V1#",
+            "children": [
+              {
+                "id": "99b297c2-f1e0-11ed-a61c-b538780b7862",
+                "name": "Add Assistant Operator",
+                "screen_id": "MENU_OPERATOR_ADD",
+                "ussd_code": "*merchant*account*operator*add*V1#"
+              },
+              {
+                "id": "99b2beb0-f1e0-11ed-a61c-b538780b7862",
+                "name": "Reset Operator PIN",
+                "screen_id": "MENU_OPERATOR_RESET",
+                "ussd_code": "*merchant*account*operator*reset*V1#"
+              },
+              {
+                "id": "99b2beb1-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unlock Operator PIN",
+                "screen_id": "MENU_OPERATOR_UNLOCK",
+                "ussd_code": "*merchant*account*operator*reset*V1#"
+              },
+              {
+                "id": "99b2beb2-f1e0-11ed-a61c-b538780b7862",
+                "name": "Remove Operator",
+                "screen_id": "MENU_OPERATOR_REMOVE",
+                "ussd_code": "*merchant*account*operator*remove*V1#"
+              },
+              {
+                "id": "99b2beb3-f1e0-11ed-a61c-b538780b7862",
+                "name": "Suspend Operator",
+                "screen_id": "MENU_OPERATOR_SUSPEND",
+                "ussd_code": "*merchant*account*operator*suspend*V1#"
+              },
+              {
+                "id": "99b2beb4-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unsuspend Operator",
+                "screen_id": "MENU_OPERATOR_UNSUSPEND",
+                "ussd_code": "*merchant*account*operator*unsuspend*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2beb5-f1e0-11ed-a61c-b538780b7862",
+            "name": "Change Language",
+            "screen_id": "MENU_ACCOUNT_LANGUAGE",
+            "ussd_code": "*merchant*account*lang*V1#"
+          },
+          {
+            "id": "99b2beb6-f1e0-11ed-a61c-b538780b7862",
+            "name": "M-PESA Statements",
+            "screen_id": "MENU_ACCOUNT_STATEMENTS",
+            "ussd_code": "*merchant*account*statement*V1#",
+            "children": [
+              {
+                "id": "99b2beb7-f1e0-11ed-a61c-b538780b7862",
+                "name": "Mini Statement",
+                "screen_id": "MENU_STATEMENT_MINI",
+                "ussd_code": "*merchant*account*statement*mini*V1#"
+              },
+              {
+                "id": "99b2beb8-f1e0-11ed-a61c-b538780b7862",
+                "name": "Full Statement",
+                "screen_id": "MENU_STATEMENT_FULL",
+                "ussd_code": "*merchant*account*statement*full*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2beb9-f1e0-11ed-a61c-b538780b7862",
+            "name": "SMS Notifications",
+            "screen_id": "MENU_ACCOUNT_SMS",
+            "ussd_code": "*merchant*account*sms*V1#",
+            "children": [
+              {
+                "id": "99b2beba-f1e0-11ed-a61c-b538780b7862",
+                "name": "Activate",
+                "screen_id": "MENU_SMS_ACTIVATE",
+                "ussd_code": "*merchant*account*sms*activate*V1#"
+              },
+              {
+                "id": "99b2bebb-f1e0-11ed-a61c-b538780b7862",
+                "name": "Stop",
+                "screen_id": "MENU_SMS_STOP",
+                "ussd_code": "*merchant*account*sms*stop*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2bebc-f1e0-11ed-a61c-b538780b7862",
+            "name": "Merchant to Agent",
+            "screen_id": "MENU_ACCOUNT_M2A",
+            "ussd_code": "*merchant*account*m2a*V1#"
+          },
+          {
+            "id": "99b2bebd-f1e0-11ed-a61c-b538780b7862",
+            "name": "SIM Swap",
+            "screen_id": "MENU_ACCOUNT_SIM_SWAP",
+            "ussd_code": "*merchant*account*sim*V1#"
+          }
+        ]
+      }
+    ],
+    "products": [
+      {
+        "id": "99b2bebe-f1e0-11ed-a61c-b538780b7862",
+        "name": "Micro Merchant Products. Product ID: 166 & 177"
+      },
+      {
+        "id": "99b2bebf-f1e0-11ed-a61c-b538780b7862",
+        "name": "Small Merchant Products. Product ID: 173 & 84"
+      },
+      {
+        "id": "99b2bec0-f1e0-11ed-a61c-b538780b7862",
+        "name": "Medium Merchant Head Office Products. Product ID: 82 & 178"
+      },
+      {
+        "id": "99b2bec1-f1e0-11ed-a61c-b538780b7862",
+        "name": "Medium Merchant Store Products. Product ID: 86 & 179"
+      },
+      {
+        "id": "99b2bec2-f1e0-11ed-a61c-b538780b7862",
+        "name": "Large Merchant Head Office products. Product ID: 167 & 180"
+      },
+      {
+        "id": "99b2bec3-f1e0-11ed-a61c-b538780b7862",
+        "name": "Large Merchant Store Products. Product ID: 168 & 181"
+      }
+    ],
+    "category": [
+      {
+        "name": "Nominated Number"
+      },
+      {
+        "name": "Till MSISDN"
+      }
+    ],
+    "name": "Merchant"
+  },
+  "99b2bec4-f1e0-11ed-a61c-b538780b7862": {
+    "id": "99b2bec4-f1e0-11ed-a61c-b538780b7862",
+    "menu": [
+      {
+        "id": "99b2bec5-f1e0-11ed-a61c-b538780b7862",
+        "name": "Deposit",
+        "screen_id": "MENU_AGENT_DEPOSIT",
+        "ussd_code": "*agent*deposit*V1#"
+      },
+      {
+        "id": "99b2bec6-f1e0-11ed-a61c-b538780b7862",
+        "name": "Register Customer",
+        "screen_id": "MENU_REGISTER_CUSTOMER",
+        "ussd_code": "*agent*register*V1#"
+      },
+      {
+        "id": "99b2bec7-f1e0-11ed-a61c-b538780b7862",
+        "name": "Sell Airtime",
+        "screen_id": "MENU_SELL_AIRTIME",
+        "ussd_code": "*agent*airtime*V1#"
+      },
+      {
+        "id": "99b2bec8-f1e0-11ed-a61c-b538780b7862",
+        "name": "Voucher Code Withdrawal",
+        "screen_id": "MENU_VOUCHER_WITHDRAWAL",
+        "ussd_code": "*agent*withdraw*V1#"
+      },
+      {
+        "id": "99b2bec9-f1e0-11ed-a61c-b538780b7862",
+        "name": "Move Money",
+        "screen_id": "MENU_MOVE_MONEY",
+        "ussd_code": "*agent*move*V1#",
+        "children": [
+          {
+            "id": "99b2beca-f1e0-11ed-a61c-b538780b7862",
+            "name": "From Working",
+            "screen_id": "MENU_MONEY_WORKING",
+            "ussd_code": "*agent*move*working*V1#"
+          },
+          {
+            "id": "99b2becb-f1e0-11ed-a61c-b538780b7862",
+            "name": "From Float",
+            "screen_id": "MENU_MONEY_FLOAT",
+            "ussd_code": "*agent*move*float*V1#"
+          }
+        ]
+      },
+      {
+        "id": "99b2becc-f1e0-11ed-a61c-b538780b7862",
+        "name": "Distribute Float",
+        "screen_id": "MENU_DISTRIBUTE_FLOAT",
+        "ussd_code": "*agent*distribute*V1#"
+      },
+      {
+        "id": "99b2becd-f1e0-11ed-a61c-b538780b7862",
+        "name": "Agent Services",
+        "screen_id": "MENU_AGENT_SERVICES",
+        "ussd_code": "*agent*services*V1#",
+        "children": [
+          {
+            "id": "99b2bece-f1e0-11ed-a61c-b538780b7862",
+            "name": "Deposit to Agent",
+            "screen_id": "MENU_SERVICES_DEPOSIT",
+            "ussd_code": "*agent*services*deposit*V1#"
+          },
+          {
+            "id": "99b2becf-f1e0-11ed-a61c-b538780b7862",
+            "name": "Withdraw From Agent",
+            "screen_id": "MENU_SERVICES_WITHDRAW",
+            "ussd_code": "*agent*services*withdraw*V1#"
+          },
+          {
+            "id": "99b2bed0-f1e0-11ed-a61c-b538780b7862",
+            "name": "Withdraw To Bank",
+            "screen_id": "MENU_SERVICES_WITHDRAW_BANK",
+            "ussd_code": "*agent*services*withdraw*bank*V1#"
+          }
+        ]
+      },
+      {
+        "id": "99b2bed1-f1e0-11ed-a61c-b538780b7862",
+        "name": "Check Balance",
+        "screen_id": "MENU_CHECK_BALANCE",
+        "ussd_code": "*agent*balance*V1#",
+        "children": [
+          {
+            "id": "99b2bed2-f1e0-11ed-a61c-b538780b7862",
+            "name": "Float Account",
+            "screen_id": "MENU_BALANCE_FLOAT",
+            "ussd_code": "*agent*balance*float*V1#",
+            "children": [
+              {
+                "id": "99b2bed3-f1e0-11ed-a61c-b538780b7862",
+                "name": "This Store",
+                "screen_id": "MENU_BALANCE_THIS",
+                "ussd_code": "*agent*balance*this*V1#"
+              },
+              {
+                "id": "99b2bed4-f1e0-11ed-a61c-b538780b7862",
+                "name": "Enter Store Number",
+                "screen_id": "MENU_BALANCE_NUMBER",
+                "ussd_code": "*agent*balance*number*V1#"
+              },
+              {
+                "id": "99b2bed5-f1e0-11ed-a61c-b538780b7862",
+                "name": "All Stores",
+                "screen_id": "MENU_BALANCE_ALL",
+                "ussd_code": "*agent*balance*all*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2bed6-f1e0-11ed-a61c-b538780b7862",
+            "name": "Working Account",
+            "screen_id": "MENU_BALANCE_WORKING",
+            "ussd_code": "*agent*balance*working*V1#",
+            "children": [
+              {
+                "id": "99b2bed7-f1e0-11ed-a61c-b538780b7862",
+                "name": "This Store",
+                "screen_id": "MENU_BALANCE_THIS",
+                "ussd_code": "*agent*balance*this*V1#"
+              },
+              {
+                "id": "99b2bed8-f1e0-11ed-a61c-b538780b7862",
+                "name": "Enter Store Number",
+                "screen_id": "MENU_BALANCE_NUMBER",
+                "ussd_code": "*agent*balance*number*V1#"
+              },
+              {
+                "id": "99b2bed9-f1e0-11ed-a61c-b538780b7862",
+                "name": "All Stores",
+                "screen_id": "MENU_BALANCE_ALL",
+                "ussd_code": "*agent*balance*all*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2beda-f1e0-11ed-a61c-b538780b7862",
+            "name": "Commission Account",
+            "screen_id": "MENU_BALANCE_COMMISSION",
+            "ussd_code": "*agent*balance*commission*V1#",
+            "children": [
+              {
+                "id": "99b2bedb-f1e0-11ed-a61c-b538780b7862",
+                "name": "This Store",
+                "screen_id": "MENU_BALANCE_THIS",
+                "ussd_code": "*agent*balance*this*V1#"
+              },
+              {
+                "id": "99b2bedc-f1e0-11ed-a61c-b538780b7862",
+                "name": "Enter Store Number",
+                "screen_id": "MENU_BALANCE_NUMBER",
+                "ussd_code": "*agent*balance*number*V1#"
+              },
+              {
+                "id": "99b2bedd-f1e0-11ed-a61c-b538780b7862",
+                "name": "All Stores",
+                "screen_id": "MENU_BALANCE_ALL",
+                "ussd_code": "*agent*balance*all*V1#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "99b2bede-f1e0-11ed-a61c-b538780b7862",
+        "name": "Agent Account",
+        "screen_id": "MENU_AGENT_ACCOUNT",
+        "ussd_code": "*agent*account*V1#",
+        "children": [
+          {
+            "id": "99b2bedf-f1e0-11ed-a61c-b538780b7862",
+            "name": "Manage My PIN",
+            "screen_id": "MENU_ACCOUNT_PIN",
+            "ussd_code": "*agent*account*pin*V1#",
+            "children": [
+              {
+                "id": "99b2bee0-f1e0-11ed-a61c-b538780b7862",
+                "name": "Change my PIN",
+                "screen_id": "MENU_PIN_CHANGE",
+                "ussd_code": "*agent*account*pin*change*V1#"
+              },
+              {
+                "id": "99b2bee1-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unlock my PIN",
+                "screen_id": "MENU_PIN_UNLOCK",
+                "ussd_code": "*agent*account*pin*change*V1#"
+              },
+              {
+                "id": "99b2bee2-f1e0-11ed-a61c-b538780b7862",
+                "name": "Forgot my PIN",
+                "screen_id": "MENU_PIN_FORGOT",
+                "ussd_code": "*agent*account*pin*change*V1#"
+              },
+              {
+                "id": "99b2bee3-f1e0-11ed-a61c-b538780b7862",
+                "name": "Set M-PESA Security Question",
+                "screen_id": "MENU_PIN_QUESTIONS",
+                "ussd_code": "*agent*account*pin*change*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2bee4-f1e0-11ed-a61c-b538780b7862",
+            "name": "Manage Operators",
+            "screen_id": "MENU_ACCOUNT_OPERATORS",
+            "ussd_code": "*agent*account*operator*V1#",
+            "children": [
+              {
+                "id": "99b2bee5-f1e0-11ed-a61c-b538780b7862",
+                "name": "Add Assistant Operator",
+                "screen_id": "MENU_OPERATOR_ADD",
+                "ussd_code": "*agent*account*operator*add*V1#"
+              },
+              {
+                "id": "99b2bee6-f1e0-11ed-a61c-b538780b7862",
+                "name": "Reset Operator PIN",
+                "screen_id": "MENU_OPERATOR_RESET",
+                "ussd_code": "*agent*account*operator*reset*V1#"
+              },
+              {
+                "id": "99b2bee7-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unlock Operator PIN",
+                "screen_id": "MENU_OPERATOR_UNLOCK",
+                "ussd_code": "*agent*account*operator*unlock*V1#"
+              },
+              {
+                "id": "99b2bee8-f1e0-11ed-a61c-b538780b7862",
+                "name": "Remove Operator",
+                "screen_id": "MENU_OPERATOR_REMOVE",
+                "ussd_code": "*agent*account*operator*remove*V1#"
+              },
+              {
+                "id": "99b2bee9-f1e0-11ed-a61c-b538780b7862",
+                "name": "Suspend Operator",
+                "screen_id": "MENU_OPERATOR_SUSPEND",
+                "ussd_code": "*agent*account*operator*suspend*V1#"
+              },
+              {
+                "id": "99b2beea-f1e0-11ed-a61c-b538780b7862",
+                "name": "Unsuspend Operator",
+                "screen_id": "MENU_OPERATOR_UNSUSPEND",
+                "ussd_code": "*agent*account*operator*unsuspend*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2beeb-f1e0-11ed-a61c-b538780b7862",
+            "name": "Change Language",
+            "screen_id": "MENU_ACCOUNT_LANGUAGE",
+            "ussd_code": "*agent*account*lang*V1#"
+          },
+          {
+            "id": "99b2beec-f1e0-11ed-a61c-b538780b7862",
+            "name": "M-PESA Statements",
+            "screen_id": "MENU_ACCOUNT_STATEMENTS",
+            "ussd_code": "*agent*account*statement*V1#",
+            "children": [
+              {
+                "id": "99b2beed-f1e0-11ed-a61c-b538780b7862",
+                "name": "Mini Statement",
+                "screen_id": "MENU_STATEMENT_MINI",
+                "ussd_code": "*agent*account*statement*mini*V1#"
+              },
+              {
+                "id": "99b2beee-f1e0-11ed-a61c-b538780b7862",
+                "name": "Full Statement",
+                "screen_id": "MENU_STATEMENT_FULL",
+                "ussd_code": "*agent*account*statement*full*V1#"
+              }
+            ]
+          },
+          {
+            "id": "99b2beef-f1e0-11ed-a61c-b538780b7862",
+            "name": "SIM Swap",
+            "screen_id": "MENU_ACCOUNT_SIM_SWAP",
+            "ussd_code": "*agent*account*sim*V1#"
+          },
+          {
+            "id": "99b2bef0-f1e0-11ed-a61c-b538780b7862",
+            "name": "Transfer From Bank",
+            "screen_id": "MENU_ACCOUNT_TRANSFER",
+            "ussd_code": "*agent*account*transfer*V1#"
+          }
+        ]
+      }
+    ],
+    "products": [
+      {
+        "id": "99b2bef1-f1e0-11ed-a61c-b538780b7862",
+        "name": "Agent Head Office Product AND Super-Agent Head Office Product"
+      },
+      {
+        "id": "99b2bef2-f1e0-11ed-a61c-b538780b7862",
+        "name": "Agency Store Product AND Super-Agent Store Product"
+      },
+      {
+        "id": "99b2bef3-f1e0-11ed-a61c-b538780b7862",
+        "name": "Master Agent Head Office product"
+      },
+      {
+        "id": "99b2bef4-f1e0-11ed-a61c-b538780b7862",
+        "name": "Agency Independent Store Product"
+      },
+      {
+        "id": "99b2bef5-f1e0-11ed-a61c-b538780b7862",
+        "name": "Small Agent Product"
+      }
+    ],
+    "category": [
+      {
+        "id": "99b2bef6-f1e0-11ed-a61c-b538780b7862",
+        "name": "Nominated Number"
+      },
+      {
+        "id": "99b2bef7-f1e0-11ed-a61c-b538780b7862",
+        "name": "Till MSISDN"
+      }
+    ],
+    "name": "Agent"
+  }
+}

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
+
+import "./Sidebar.css";
 
 import {
   Children,
@@ -7,25 +10,24 @@ import {
   SidebarLogoWrapper,
   SidebarLogo,
   SidebarBrand,
-  SidebarToggler,
 } from "./SidebarStyles";
 
 import SidebarItems from "./SidebarItems";
-import { MenuIcon } from "../Icons";
+// import { MenuIcon } from "../Icons";
 
 const MOBILE_VIEW = window.innerWidth < 468;
 
 function Sidebar({ children }) {
   const [displaySidebar, setDisplaySidebar] = useState(!MOBILE_VIEW);
 
-  const handleSidebarDisplay = (e) => {
-    e.preventDefault();
-    if (window.innerWidth > 468) {
-      setDisplaySidebar(!displaySidebar);
-    } else {
-      setDisplaySidebar(false);
-    }
-  };
+  //   const handleSidebarDisplay = (e) => {
+  //     e.preventDefault();
+  //     if (window.innerWidth > 468) {
+  //       setDisplaySidebar(!displaySidebar);
+  //     } else {
+  //       setDisplaySidebar(false);
+  //     }
+  //   };
 
   return (
     <React.Fragment>
@@ -40,15 +42,21 @@ function Sidebar({ children }) {
                 dbXL
               </SidebarBrand>
             </SidebarLogo>
-            <SidebarToggler
-              displaySidebar={displaySidebar}
-              onClick={handleSidebarDisplay}
-            >
-              {}
-              <MenuIcon sx={{ color: "#5a8dee" }} />
-            </SidebarToggler>
           </SidebarLogoWrapper>
           <SidebarItems displaySidebar={displaySidebar} />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                flex: 1,
+                height: "1px",
+                backgroundColor: "#7c7788",
+                margin: "16px 0px 16px 0px",
+              }}
+            />
+          </div>
+          <Button variant="outlined" sx={{ color: "#5a8dee" }}>
+            Deploy
+          </Button>
         </SidebarWrapper>
       </SidebarContainer>
       <Children displaySidebar={displaySidebar}>{children}</Children>

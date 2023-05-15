@@ -12,10 +12,11 @@ import InputOutlinedIcon from "@mui/icons-material/InputOutlined";
 
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import LockIcon from '@mui/icons-material/Lock';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import MenuIcon from '@mui/icons-material/Menu';
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import LockIcon from "@mui/icons-material/Lock";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import MenuIcon from "@mui/icons-material/Menu";
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 
 export {
   HomeOutlinedIcon as HomeIcon,
@@ -33,5 +34,6 @@ export {
   LockIcon,
   LockOpenIcon,
   MenuIcon,
-  PointOfSaleIcon
+  AccountBoxOutlinedIcon,
+  PointOfSaleIcon,
 };

@@ -7,10 +7,11 @@ import {
   ItemName,
 } from "./SidebarStyles";
 
-import { sidebarData } from "../../data/sidebarData.jsx";
+import { useSidebarData } from "../../hooks/sidebarData";
 
 const SidebarItems = ({ displaySidebar }) => {
   const [activeItem, setActiveItem] = useState(0);
+  const sidebarData = useSidebarData();
 
   return (
     <ItemsList>

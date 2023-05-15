@@ -5,19 +5,11 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
+import { useMapping } from "../../hooks/mapping.js";
+import AddItemDialogue from "../Utilities/AddItemDialogue/AddItemDialogue.jsx";
 
-import { getMapping, getMappingRoute } from "../../lib/mapping";
 import { Checkbox } from "@mui/material";
-
-export async function loader({ params: { mappingId } }) {
-  const [mapping, mappingRoute] = await Promise.all([
-    getMapping(mappingId),
-    getMappingRoute(mappingId),
-  ]);
-
-  return { mapping, mappingRoute };
-}
 
 function buildRows({ depth = 1, menu, parents = [] }) {
   const rows = [];
@@ -45,9 +37,8 @@ function buildRows({ depth = 1, menu, parents = [] }) {
 }
 
 const Mapping = () => {
-  const {
-    mapping: { menu, products, category },
-  } = useLoaderData();
+  const { mappingId } = useParams();
+  const { menu, products, category } = useMapping(mappingId);
 
   console.debug("Got Menu", menu);
   console.debug("Got Products", products);
@@ -63,7 +54,7 @@ const Mapping = () => {
           maxHeight: "100vh",
         }}
       >
-        <Table stickyHeader aria-label="sticky table">
+        <Table size="small" stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               <TableCell colSpan={maxDepth} />
@@ -73,7 +64,8 @@ const Mapping = () => {
                   key={id}
                   sx={{
                     padding: "8px",
-                    minWidth: "200px",
+                    minWidth: "150px",
+                    minHeight: "200px",
                   }}
                 >
                   {name}
@@ -82,9 +74,21 @@ const Mapping = () => {
             </TableRow>
             <TableRow>
               <TableCell colSpan={maxDepth} />
-              {category.map(({ name }) => (
-                <TableCell align="center" key={name}>
-                  {name}
+              {products.map(({ id }) => (
+                <TableCell align="center" key={id}>
+                  {category.map(({ name }) => (
+                    <TableCell
+                      align="center"
+                      key={name}
+                      sx={{
+                        borderBottom: "0px",
+                        minWidth: "150px",
+                        minHeight: "200px",
+                      }}
+                    >
+                      {name}
+                    </TableCell>
+                  ))}
                 </TableCell>
               ))}
             </TableRow>
@@ -102,21 +106,26 @@ const Mapping = () => {
                 </TableCell>
                 {products.map(({ id: productId }) => (
                   <TableCell key={`${rowId}#${productId}`} align="center">
-                    <Checkbox
-                      defaultChecked
-                      sx={{
-                        color: "#5a8dee",
-                        "&.Mui-checked": {
+                    {category.map(({ name }) => (
+                      <Checkbox
+                        defaultChecked
+                        key={name}
+                        sx={{
                           color: "#5a8dee",
-                        },
-                      }}
-                    />
+                          "&.Mui-checked": {
+                            color: "#5a8dee",
+                            margin: "0 48px",
+                          },
+                        }}
+                      />
+                    ))}
                   </TableCell>
                 ))}
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        <AddItemDialogue />
       </TableContainer>
     </Paper>
   );

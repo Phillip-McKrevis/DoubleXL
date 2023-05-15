@@ -1,0 +1,50 @@
+#main>div.sc-bgqQcB.hookzk {
+    z-index: 0;
+    position: relative;
+}
+
+/* Sidebar Element */
+#main>div.sc-dcrmVg.fmLfGR {
+    background: rgb(33 33 33);
+    border-right: 1px solid rgba(81, 81, 81, 1);
+    position: fixed;
+    z-index: 1;
+}
+
+/*Sidebar Brand*/
+
+#main>div.sc-dcrmVg.fmLfGR>div>div.sc-ewnqHT.fAKfiN {
+    justify-content: flex-end;
+}
+
+/* Sidebar Menu Items */
+
+.ePvJcc {
+    color: #7c7788;
+}
+
+#main>div.sc-dcrmVg.fmLfGR>div>ul>li {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#main>div.sc-dcrmVg.fmLfGR>div>ul>li:hover {
+    background-color: #7c7788;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.bAZJoe {
+    color: #7c7788;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.bAZJoe:hover {
+    color: rgba(0, 0, 0, 0.87);
+
+}
+
+/* #main>div.sc-bgqQcB.hookzk>div>div>table>thead:nth-child(1) {
+    z-index: 0;
+    position: relative;
+} */

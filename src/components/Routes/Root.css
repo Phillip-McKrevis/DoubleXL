@@ -43,7 +43,7 @@
 }
 
 .btn:hover {
-  background-color: #e4e3e34d;
+  background-color: #e4e3e3;
 }
 
 #page {
@@ -116,4 +116,14 @@
   border-radius: 50%;
   background-color: #fff;
 }
+
 /* Sidebar toggle button ends */
+
+.css-vtdehq-MuiTableCell-root {
+  display: flex;
+  justify-content: space-around;
+}
+
+#main>div.sc-bgqQcB.hookzk>div>div>table>tbody>tr:nth-child(n)>td:nth-child(n)>span:nth-child(n) {
+  margin: 0 48px;
+}

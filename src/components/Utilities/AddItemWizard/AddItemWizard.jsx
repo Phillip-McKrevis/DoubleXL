@@ -9,6 +9,7 @@ import { useMappingData } from "../../../hooks/mappingData";
 import DropDown from "../DropDown/DropDown.jsx";
 
 import "./AddItemWizard.css";
+import { node } from "prop-types";
 
 function getOptions(traversedMenu) {
   const options = new Map();
@@ -65,6 +66,18 @@ function AddItemWizard() {
     const { path } = options.get(formValues.parentMenuItem);
     const parent = traversedMenu.get(path);
 
+    // console.log("CCCCCCCCCCCCCCCCCCCCCCCC", parent);
+
+    // if (formValues.parentMenuItem === "99b297a0-f1e0-11ed-a61c-b538780b7862") {
+    //   console.log("AAAAAAAAAAAAAAAAAA");
+    //   setFormValue("parentMenuItem", formValues.parentMenuItem);
+    // } else if (
+    //   formValues.parentMenuItem === "99b2bec4-f1e0-11ed-a61c-b538780b7862"
+    // ) {
+    //   console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+    //   setFormValue("parentMenuItem", formValues.parentMenuItem);
+    // }
+
     traversedMenu.set(path, {
       ...parent,
       children: [
@@ -77,6 +90,28 @@ function AddItemWizard() {
         },
       ],
     });
+
+    // console.log("AAAAAAAAAAAAAAAAAAAA", traversedMenu.value);
+    // let [childArray] = [traversedMenu.value];
+    // console.log("BBBBBBBBBBBBBB", childArray);
+    // childArray.forEach((child, index, arr) => {
+    //   if (!item.children) {
+    //     child = traversedMenu.value.name;
+    //     childArray.push();
+    //   }
+    //  });
+    // for (const [child] in childArray.children) {
+    //   console.log(child.name);
+    // }
+
+    // for (var i = 0, l = childArray.children; i < l; i++) {
+    //   var child = childArray.children[i];
+
+    //   if (child.name !== traversedMenu.value) {
+    //     let newChild = child.push(traversedMenu.value);
+    //     console.log("NEW CHILD ARR: ", newChild);
+    //   }
+    // }
 
     setMappingData((mappingData) =>
       menu.reduce(
@@ -102,43 +137,51 @@ function AddItemWizard() {
   }
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
-      <DropDown
-        onChange={(value) => {
-          setFormValue("parentMenuItem", value);
-        }}
-        options={[...options.values()].map(({ label, id }) => ({
-          label,
-          id,
-        }))}
-        value={formValues.parentMenuItem}
-      />
-      <TextField
-        id="name"
-        variant="outlined"
-        onChange={(e) => {
-          setFormValue("name", e.target.value);
-        }}
-        value={formValues.name}
-      />
-      <TextField
-        id="sreen_id"
-        variant="outlined"
-        onChange={(e) => {
-          setFormValue("screen_id", e.target.value);
-        }}
-        value={formValues.screen_id}
-      />
-      <TextField
-        id="ussd_code"
-        variant="outlined"
-        onChange={(e) => {
-          setFormValue("ussd_code", e.target.value);
-        }}
-        value={formValues.ussd_code}
-      />
-      <Button type="submit">SUBMIT</Button>
-    </Box>
+    <div className="wrapper">
+      <Box component="form" onSubmit={handleSubmit}>
+        <DropDown
+          onChange={(value) => {
+            setFormValue("parentMenuItem", value);
+            console.log(value);
+          }}
+          options={[...options.values()].map(({ label, id }) => ({
+            label,
+            id,
+          }))}
+          value={formValues.parentMenuItem}
+        />
+        <TextField
+          id="name"
+          label="Menu Item Name"
+          variant="outlined"
+          onChange={(e) => {
+            setFormValue("name", e.target.value);
+          }}
+          value={formValues.name}
+        />
+        <TextField
+          id="sreen_id"
+          label="Screen ID"
+          variant="outlined"
+          onChange={(e) => {
+            setFormValue("screen_id", e.target.value);
+          }}
+          value={formValues.screen_id}
+        />
+        <TextField
+          id="ussd_code"
+          label="USSD Code"
+          variant="outlined"
+          onChange={(e) => {
+            setFormValue("ussd_code", e.target.value);
+          }}
+          value={formValues.ussd_code}
+        />
+      </Box>
+      <Button id="submit_btn" type="submit" onClick={handleSubmit}>
+        SUBMIT
+      </Button>
+    </div>
   );
 }
 

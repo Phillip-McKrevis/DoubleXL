@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 
-import AddItemWizard from "../AddItemWizard/AddItemWizard.jsx";
+import AddItemWizard from "../AddItemWizard/getOptions.jsx";
 import "./AddItemDialogue.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {

@@ -21,7 +21,7 @@ function buildRows({ depth = 1, menu, parents = [] }) {
 
     if (children) {
       const childRows = buildRows({
-        depth: depth + 1,
+        depth: depth + 2,
         menu: children,
         parents: [...parents, service],
       });

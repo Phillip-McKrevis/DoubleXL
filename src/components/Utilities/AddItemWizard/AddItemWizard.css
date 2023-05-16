@@ -11,3 +11,13 @@ button.css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
 .css-m8a1uf-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
   background-color: #5a8dee;
 }
+
+.wrapper {
+  flex-direction: column;
+  display: flex;
+  margin-top: 64px
+}
+
+#submit_btn {
+  align-self: flex-end;
+}

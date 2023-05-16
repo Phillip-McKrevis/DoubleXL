@@ -15,7 +15,7 @@ button.css-1f5ro5o-MuiButtonBase-root-MuiButton-root {
 .wrapper {
   flex-direction: column;
   display: flex;
-  margin-top: 64px
+  margin-top: 64px;
 }
 
 #submit_btn {

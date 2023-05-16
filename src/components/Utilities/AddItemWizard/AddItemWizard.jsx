@@ -9,7 +9,6 @@ import { useMappingData } from "../../../hooks/mappingData";
 import DropDown from "../DropDown/DropDown.jsx";
 
 import "./AddItemWizard.css";
-import { node } from "prop-types";
 
 function getOptions(traversedMenu) {
   const options = new Map();
@@ -144,10 +143,6 @@ function AddItemWizard() {
             setFormValue("parentMenuItem", value);
             console.log(value);
           }}
-          options={[...options.values()].map(({ label, id }) => ({
-            label,
-            id,
-          }))}
           value={formValues.parentMenuItem}
         />
         <TextField

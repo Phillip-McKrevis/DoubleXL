@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMapping } from "../../hooks/mapping.js";
 import AddItemDialogue from "../Utilities/AddItemDialogue/AddItemDialogue.jsx";
 

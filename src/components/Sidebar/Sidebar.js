@@ -16,18 +16,16 @@ import SidebarItems from "./SidebarItems";
 // import { MenuIcon } from "../Icons";
 
 const MOBILE_VIEW = window.innerWidth < 468;
+export const DEPLOY_EVENT_TYPE = "deploy";
+
+function onDeploy() {
+  const event = new CustomEvent(DEPLOY_EVENT_TYPE);
+
+  document.dispatchEvent(event);
+}
 
 function Sidebar({ children }) {
-  const [displaySidebar, setDisplaySidebar] = useState(!MOBILE_VIEW);
-
-  //   const handleSidebarDisplay = (e) => {
-  //     e.preventDefault();
-  //     if (window.innerWidth > 468) {
-  //       setDisplaySidebar(!displaySidebar);
-  //     } else {
-  //       setDisplaySidebar(false);
-  //     }
-  //   };
+  const [displaySidebar] = useState(!MOBILE_VIEW);
 
   return (
     <React.Fragment>
@@ -54,7 +52,11 @@ function Sidebar({ children }) {
               }}
             />
           </div>
-          <Button variant="outlined" sx={{ color: "#5a8dee" }}>
+          <Button
+            variant="outlined"
+            sx={{ color: "#5a8dee" }}
+            onClick={onDeploy}
+          >
             Deploy
           </Button>
         </SidebarWrapper>

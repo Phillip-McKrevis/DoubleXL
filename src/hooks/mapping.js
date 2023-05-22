@@ -3,7 +3,7 @@ import { useMappingData, useMappingRouteData } from "./mappingData";
 export function useMapping(mappingId) {
   console.debug("Mapping ID", mappingId);
   const [mappingData] = useMappingData();
-  return mappingData[mappingId];
+  return mappingData?.[mappingId];
 }
 
 export function useMappingRoute(mappingId) {

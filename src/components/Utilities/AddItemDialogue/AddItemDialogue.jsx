@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 
-import AddItemWizard from "../AddItemWizard/getOptions.jsx";
+import AddItemWizard from "../AddItemWizard/AddItemWizard.jsx";
 import "./AddItemDialogue.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -24,7 +24,7 @@ export default function FullScreenDialog() {
     var css =
       "text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue; font-size: 40px;";
     setOpen(true);
-    console.log("%cHappy Easter:", "color: pink");
+    console.log("%cHAPPY EASTER:", "color: pink");
     console.log("%chttps://cataas.com/cat", css);
   };
 

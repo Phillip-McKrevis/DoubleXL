@@ -1,6 +1,7 @@
-import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import TextField from "@mui/material/TextField";
 import { v1 as uuidv1 } from "uuid";
 import traverse from "traverse";
@@ -10,26 +11,41 @@ import DropDown from "../DropDown/DropDown.jsx";
 
 import "./AddItemWizard.css";
 
+const SECTION_LEVEL = 1;
+
 function getOptions(traversedMenu) {
   const options = new Map();
   const path = [];
+  let section = undefined;
 
   traversedMenu.forEach(function (x) {
     this.before(() => {
       if (this.node.children) {
+        if (this.level === SECTION_LEVEL) {
+          section = x.id;
+        }
         path.push(this.node.name);
       }
     });
 
     this.after(() => {
+      if (this.level === SECTION_LEVEL) {
+        section = undefined;
+      }
       if (this.node.children) {
         path.pop();
       }
     });
 
+    if (this.level < 4) {
+      console.log(this.level, x);
+    }
+
     if (this.notLeaf && !Array.isArray(x)) {
-      options.set(x.id, {
-        id: x.id,
+      //avoids ID clash in parent object sections
+      const id = `${section ? section + "-" : ""}${x.id}`;
+      options.set(id, {
+        id,
         label: `${path.join(" > ")} > ${x.name}`,
         path: this.path,
       });
@@ -41,31 +57,33 @@ function getOptions(traversedMenu) {
 
 function AddItemWizard() {
   const [mappingData, setMappingData] = useMappingData();
-
-  const menu = Object.values(mappingData).map(({ menu, name, id }) => ({
-    children: menu,
-    name,
-    id,
-  }));
-
-  const traversedMenu = traverse(menu);
-
-  const options = getOptions(traversedMenu);
-
-  const [formValues, setFormValues] = React.useState({
+  const [formValues, setFormValues] = useState({
     name: "",
     screen_id: "",
     ussd_code: "",
     parentMenuItem: "",
   });
 
+  if (!mappingData) {
+    return <CircularProgress />;
+  }
+
+  const menu = Object.values(mappingData).map(({ menu, name, id }) => ({
+    children: menu,
+    name,
+    id,
+  }));
+  console.log("THIS IS THE MENU BEFORE TRAVERSAL: ", menu);
+  const traversedMenu = traverse(menu);
+
+  const options = getOptions(traversedMenu);
+  console.log("THESE ARE FIRST OPTIONS: ", options);
+
   function handleSubmit(e) {
     e.preventDefault();
 
     const { path } = options.get(formValues.parentMenuItem);
     const parent = traversedMenu.get(path);
-
-    // console.log("CCCCCCCCCCCCCCCCCCCCCCCC", parent);
 
     // if (formValues.parentMenuItem === "99b297a0-f1e0-11ed-a61c-b538780b7862") {
     //   console.log("AAAAAAAAAAAAAAAAAA");
@@ -90,39 +108,18 @@ function AddItemWizard() {
       ],
     });
 
-    // console.log("AAAAAAAAAAAAAAAAAAAA", traversedMenu.value);
-    // let [childArray] = [traversedMenu.value];
-    // console.log("BBBBBBBBBBBBBB", childArray);
-    // childArray.forEach((child, index, arr) => {
-    //   if (!item.children) {
-    //     child = traversedMenu.value.name;
-    //     childArray.push();
-    //   }
-    //  });
-    // for (const [child] in childArray.children) {
-    //   console.log(child.name);
-    // }
-
-    // for (var i = 0, l = childArray.children; i < l; i++) {
-    //   var child = childArray.children[i];
-
-    //   if (child.name !== traversedMenu.value) {
-    //     let newChild = child.push(traversedMenu.value);
-    //     console.log("NEW CHILD ARR: ", newChild);
-    //   }
-    // }
+    const menuPath = path.length === SECTION_LEVEL ? "menu" : "children";
 
     setMappingData((mappingData) =>
       menu.reduce(
-        (acc, { id, name, children }) =>
-          console.log("!!!", mappingData, id, mappingData[id]) || {
-            ...acc,
-            [id]: {
-              ...mappingData[id],
-              name,
-              children,
-            },
+        (acc, { id, name, children }) => ({
+          ...acc,
+          [id]: {
+            ...mappingData[id],
+            name,
+            menu: children,
           },
+        }),
         {}
       )
     );
@@ -143,6 +140,10 @@ function AddItemWizard() {
             setFormValue("parentMenuItem", value);
             console.log(value);
           }}
+          options={[...options.values()].map(({ label, id }) => ({
+            label,
+            id,
+          }))}
           value={formValues.parentMenuItem}
         />
         <TextField

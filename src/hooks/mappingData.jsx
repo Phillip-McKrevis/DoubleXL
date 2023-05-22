@@ -1,45 +1,52 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   PointOfSaleIcon,
   AccountBoxOutlinedIcon,
 } from "../components/Icons.js";
-
-import defaultMappingData from "../data/dynamic_menu.json";
+import { getMappingData, postMappingData } from "../lib/api/api.js";
 
 const SET_MAPPING_DATA_EVENT_TYPE = "setmappingdata";
 
 export function useMappingData() {
-  const [mappingData, setMappingData] = useState(defaultMappingData);
+  const [mappingData, setMappingData] = useState();
 
   const onSetMappingData = ({ detail: { mappingData } }) => {
     console.debug("Got new mapping data", mappingData);
     setMappingData(mappingData);
   };
 
-  function updateMappingData(setter) {
-    const updatedMappingData =
-      typeof setter === "function" ? setter(mappingData) : setter;
-
-    console.debug(
-      "Notifying listeners of new mapping data:",
-      updatedMappingData
-    );
+  const notifyPeers = useCallback((mappingData) => {
+    console.debug("Notifying listeners of new mapping data:", mappingData);
 
     const event = new CustomEvent(SET_MAPPING_DATA_EVENT_TYPE, {
-      detail: { mappingData: updatedMappingData },
+      detail: { mappingData },
     });
 
     document.dispatchEvent(event);
-  }
+  }, []);
+
+  const updateMappingData = useCallback(
+    (setter) => {
+      const updatedMappingData =
+        typeof setter === "function" ? setter(mappingData) : setter;
+
+      postMappingData(updatedMappingData);
+      notifyPeers(updatedMappingData);
+    },
+    [mappingData, notifyPeers]
+  );
 
   useEffect(() => {
     document.addEventListener(SET_MAPPING_DATA_EVENT_TYPE, onSetMappingData);
+
+    getMappingData().then((mappingData) => notifyPeers(mappingData));
+
     return () =>
       document.removeEventListener(
         SET_MAPPING_DATA_EVENT_TYPE,
         onSetMappingData
       );
-  }, []);
+  }, [notifyPeers]);
 
   return [mappingData, updateMappingData];
 }

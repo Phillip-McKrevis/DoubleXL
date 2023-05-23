@@ -44,6 +44,7 @@ function getOptions(traversedMenu) {
     if (this.notLeaf && !Array.isArray(x)) {
       //avoids ID clash in parent object sections
       const id = `${section ? section + "-" : ""}${x.id}`;
+
       options.set(id, {
         id,
         label: `${path.join(" > ")} > ${x.name}`,
@@ -73,56 +74,74 @@ function AddItemWizard() {
     name,
     id,
   }));
-  console.log("THIS IS THE MENU BEFORE TRAVERSAL: ", menu);
-  const traversedMenu = traverse(menu);
 
+  const traversedMenu = traverse(menu);
+  console.log("THIS IS THE TRAVERSED MENU: ", traversedMenu);
   const options = getOptions(traversedMenu);
-  console.log("THESE ARE FIRST OPTIONS: ", options);
+
+  const keys = ["name", "screen_id", "ussd_code"];
+  const values = [];
+
+  traversedMenu.forEach(function (x) {
+    if (keys.includes(this.key)) {
+      values.push(x);
+    }
+  });
+
+  console.log("VALUES ", values);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const { path } = options.get(formValues.parentMenuItem);
-    const parent = traversedMenu.get(path);
-
-    // if (formValues.parentMenuItem === "99b297a0-f1e0-11ed-a61c-b538780b7862") {
-    //   console.log("AAAAAAAAAAAAAAAAAA");
-    //   setFormValue("parentMenuItem", formValues.parentMenuItem);
-    // } else if (
-    //   formValues.parentMenuItem === "99b2bec4-f1e0-11ed-a61c-b538780b7862"
-    // ) {
-    //   console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-    //   setFormValue("parentMenuItem", formValues.parentMenuItem);
-    // }
-
-    traversedMenu.set(path, {
-      ...parent,
-      children: [
-        ...(parent.children || []),
-        {
-          id: uuidv1(),
-          name: formValues.name,
-          screen_id: formValues.screen_id,
-          ussd_code: formValues.ussd_code,
-        },
-      ],
-    });
-
-    const menuPath = path.length === SECTION_LEVEL ? "menu" : "children";
-
-    setMappingData((mappingData) =>
-      menu.reduce(
-        (acc, { id, name, children }) => ({
-          ...acc,
-          [id]: {
-            ...mappingData[id],
-            name,
-            menu: children,
-          },
-        }),
-        {}
-      )
+    // Check if the form values are already present in the values array
+    const isPresent = values.some(
+      (value) =>
+        value.name === formValues.name &&
+        value.screen_id === formValues.screen_id &&
+        value.ussd_code === formValues.ussd_code
     );
+
+    // If the form values are present, log out an error or display it on the UI
+    if (isPresent) {
+      alert("The form values already exist in the values array");
+      // Alternatively, you can use a state variable to store the error message and render it on the UI
+      // setError("The form values already exist in the values array");
+    } else {
+      // Otherwise, proceed with the rest of the logic
+      const { path } = options.get(formValues.parentMenuItem);
+      const parent = traversedMenu.get(path);
+      console.log("TRAVERD|SSDAF ", parent.children.name);
+
+      traversedMenu.set(path, {
+        ...parent,
+        children: [
+          ...(parent.children || []),
+          {
+            id: uuidv1(),
+            name: formValues.name,
+            screen_id: formValues.screen_id,
+            ussd_code: formValues.ussd_code,
+          },
+        ],
+      });
+
+      const menuPath = path.length === SECTION_LEVEL ? "menu" : "children";
+      console.log("MENU PATH ", menuPath);
+
+      setMappingData((mappingData) =>
+        menu.reduce(
+          (acc, { id, name, children }) => ({
+            ...acc,
+            [id]: {
+              ...mappingData[id],
+              name,
+              menu: children,
+            },
+          }),
+          {}
+        )
+      );
+    }
   }
 
   function setFormValue(key, value) {

@@ -108,7 +108,7 @@ const Mapping = () => {
         }}
       >
         <Table size="small" stickyHeader aria-label="sticky table">
-          <TableHead>
+          <TableHead sx={{ position: "sticky", top: "0", zIndex: "1" }}>
             <TableRow>
               <TableCell colSpan={maxDepth} />
               {products.map(({ id, name }) => (
